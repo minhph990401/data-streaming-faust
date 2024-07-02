@@ -42,7 +42,7 @@ table = app.Table(
 
 @app.agent(topic)
 async def process_station():
-    return TransformedStation(station_id = Station.station_id,
+    table[Station.station_id] = TransformedStation(station_id = Station.station_id,
                               station_name = Station.station_name,
                               order = Station.order,
                               line = "red" if Station.red else "blue" if Station.blue else "green")
